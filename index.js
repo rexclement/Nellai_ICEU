@@ -190,3 +190,10 @@ app.post('/changeme', async (req, res) => {
 app.listen(port, () => console.log("Server running on port 5000"));
 
 
+app.get('/', (req, res) => {
+  res.send('Hello from Express on Vercel!');
+});
+
+// Export the app as a serverless function
+const serverless = require('serverless-http');
+module.exports = serverless(app);
